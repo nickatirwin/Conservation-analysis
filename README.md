@@ -49,6 +49,8 @@ python conservation.py AtDDM1.fasta archaeplastida
 ## Output
 Results will be output into a results directory. The script will output formatted plots showing the conservation score inferred from the phylogenetic analysis. Conservation is calculated as 1/rate of each site. A table compiling all results is created (ends with .tsv).
 
+The alignment from which the conservation scores was calculated is in the results directory and called: query.select.fasta.aln.trim.
+
 ## Methods
 The script takes the query protein as input and searches the designated database using DIAMOND BLASTP (e-value < 1e-5, query-coverage > 50, max hits: 1000). The hits are then aligned using MAFFT, trimmed based on the query sequence, and an initial phylogeny is inferred using IQTREE (model: LG+I+G4, fast mode). The tree is then loaded in ETE and the tree is traversed from the query protein. The clade with sequences closest to 200 will be selected, and the resulting sequences are extracted. The extracted sequences are then re-aligned using MAFFT, trimmed based on the query, and a second phylogeny is ran (using the same parameters, as well as -wsr for rate reporting). The resulting rates are plotted and reported alongside the Shannon entropy and sequence distance (the median distance between the query amino acid and the other sequences based on BLOSSUM62).  
 
