@@ -46,6 +46,14 @@ Run the script
 python conservation.py AtDDM1.fasta eukaryota
 python conservation.py AtDDM1.fasta archaeplastida
 ```
+Note: The database could also be customized.
+```
+# eg. custom.fasta
+# make a diamond database
+diamond makedb --in custom.fasta --db custom.dmnd
+python conservation.py AtDDM1.fasta datasets/custom
+```
+
 ## Output
 Results will be output into a results directory. The script will output formatted plots showing the conservation score inferred from the phylogenetic analysis. Conservation is calculated as 1/rate of each site. A table compiling all results is created (ends with .tsv).
 
