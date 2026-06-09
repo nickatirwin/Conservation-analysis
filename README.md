@@ -27,6 +27,16 @@ conda env create -f environment.yml
 # or
 mamba env create -f environment.yml
 ```
+Note that creating the environment using the .yml file may not work on the CLIP cluster.
+Instead do this:
+```
+# Create and activate a new environment
+conda create -n conservation python=3.10 -y
+conda activate conservation
+
+# Install all dependencies
+conda install -c conda-forge -c bioconda diamond mafft iqtree ete3 biopython numpy scipy pandas matplotlib seaborn -y
+```
 Activate the conda environment
 ```
 conda activate conservation
